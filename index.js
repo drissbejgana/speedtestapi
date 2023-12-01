@@ -24,12 +24,10 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 // Set up a basic route for the chat page
-app.get('/speedtest', (req, res) => {
-  speedtest.getSpeed().then(s => {
-      res.send(`{"Speed": ${s}}`);
-    ;})
+app.get('/speedtest',async(req, res) => {
 
-   
+  const resulta= await speedtest.getSpeed()
+  res.send(`{"Speed": ${resulta}}`);
 
 });
 
