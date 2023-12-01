@@ -1,0 +1,23 @@
+{
+  "name": "speedtestapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drissbejgana/speedtestapi.git"
+  },
+  "author": "drissbejgana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drissbejgana/speedtestapi/issues"
+  },
+  "homepage": "https://github.com/drissbejgana/speedtestapi#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "fast-speedtest-api": "^0.3.2"
+  }
+}
