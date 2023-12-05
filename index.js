@@ -1,21 +1,11 @@
 const express = require('express');
 const http = require('http');
+const socketIo = require('socket.io');
 const bodyParser = require('body-parser');
-const FastSpeedtest = require('fast-speedtest-api');
-
-let speedtest = new FastSpeedtest({
-  token: 'YXNkZmFzZGxmbnNkYWZoYXNkZmhrYWxm',
-  verbose: false, // default: false
-  timeout: 8000, // default: 5000
-  https: true, // default: true
-  urlCount: 5, // default: 5
-  bufferSize: 8, // default: 8
-  unit: FastSpeedtest.UNITS.Mbps,
-
-});
 
 const app = express();
 const server = http.createServer(app);
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -24,10 +14,9 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 // Set up a basic route for the chat page
-app.get('/',async(req, res) => {
-
-  const resulta= await speedtest.getSpeed()
-  res.send(`{"Speed": ${resulta}}`);
+app.post('/', (req, res) => {
+  console.log(req.body)
+  res.send(JSON.stringify(req.body))
 
 });
 
@@ -35,4 +24,6 @@ app.get('/',async(req, res) => {
 // Start the server
 server.listen(3000, () => {
   console.log('Server is running on http://localhost:3000');
+  
 });
+
