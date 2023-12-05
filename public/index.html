@@ -76,7 +76,7 @@ function MeasureConnectionSpeed() {
         //     speedMbps + " Mbps"
         // ]);
         (async () => {
-        const rawResponse = await fetch('/', {
+        const rawResponse = await fetch('https://speedtestapi.onrender.com/', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
